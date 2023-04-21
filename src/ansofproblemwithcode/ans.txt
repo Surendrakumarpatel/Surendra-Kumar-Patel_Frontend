@@ -1,0 +1,27 @@
+***************************************************************
+Q-1: Explain what the simple List component does.
+Ans:
+The code defines a simple List component in React. The List component takes an array of items and renders them as a list of Single List Items. Each Single List Item displays a text and changes its background color depending on whether it is selected or not.
+***************************************************************
+
+
+
+***************************************************************
+Q-2: What problems / warnings are there with code?
+Ans: In the SingleListItem component, the onClickHandler prop is not being passed correctly. Instead of passing a function that calls onClickHandler with the index, the current code is calling onClickHandler with the index immediately. This means that the onClickHandler function will be called as soon as the component is rendered, rather than when the item is clicked. To fix this, we need to pass a function that calls onClickHandler with the index when the item is clicked.
+
+In the WrappedListComponent, the setSelectedIndex state is being initialized with null. However, the isSelected prop of the SingleListItem component expects a boolean value. This can cause issues when the component is rendered for the first time, as null is not a valid value for the isSelected prop. We can fix this by initializing selectedIndex with -1 instead of null.
+
+The items prop of the WrappedListComponent is defined with the incorrect PropTypes. The array prop type should be defined as PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string.isRequired })) to ensure that each item in the array has the required text property.
+
+The items prop of the WrappedListComponent is defined with a default value of null, which could cause issues if the component is rendered without any items. It would be better to define a default value of [] instead.
+***************************************************************
+
+
+
+***************************************************************
+Q-3: Please fix, optimize, and/or modify the component as much as you think is necessary.
+Ans: Check optimize.jsx file (Updated and Optimized Code Written over there).
+***************************************************************
+
+
